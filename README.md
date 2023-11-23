@@ -11,5 +11,7 @@ in the sense that we need to implement some features that were not formerly expl
 - **Realistic Ball Movement:** The ball will bounce off the walls in a realistic way, in the direction you would expect.
 - **Score Tracking:** Keep track of the score for each player, the first to 11 wins.
 - **Classic Pong Gameplay:** Experience the timeless gameplay of Pong with our own remake of this classic game!
-
+## Mockup
+## Screenshots
+![Pong Game Mockup](Mockup.png)
 
