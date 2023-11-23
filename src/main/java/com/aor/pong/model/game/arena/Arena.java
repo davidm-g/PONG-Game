@@ -1,11 +1,15 @@
-package com.aor.hero;
+package com.aor.pong.model.game.arena;
+
+import com.aor.pong.model.game.elements.Ball;
+import com.aor.pong.model.game.elements.Paddle;
+import com.aor.pong.model.game.elements.ScoreBoard;
 
 public class Arena {
     private final int width;
     private final int height;
     private Paddle paddle1;
     private Paddle paddle2;
-    private  Ball ball;
+    private Ball ball;
     private ScoreBoard scoreBoard;
 
     public Arena(int width, int height){
