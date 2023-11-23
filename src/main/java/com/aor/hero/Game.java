@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Game {
     private final LanternaGUI gui;
-    State state;
+    private State state;
     private Game(){
         try {
             this.gui = new LanternaGUI(20,20);
