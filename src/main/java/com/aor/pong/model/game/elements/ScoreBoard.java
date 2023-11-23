@@ -1,4 +1,6 @@
-package com.aor.hero;
+package com.aor.pong.model.game.elements;
+
+import com.aor.pong.model.game.elements.Element;
 
 public class ScoreBoard extends Element {
     int score1;
@@ -8,6 +10,7 @@ public class ScoreBoard extends Element {
         score1 = 0;
         score2 = 0;
     }
+
 
     public int getScore1() {
         return score1;

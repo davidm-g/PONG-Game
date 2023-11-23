@@ -1,9 +1,9 @@
-package com.aor.hero;
+package com.aor.pong.model;
 
 public class Position {
     int x;
     int y;
-    Position(int x, int y){
+    public Position(int x, int y){
         this.x=x;
         this.y=y;
     }
