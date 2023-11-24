@@ -1,7 +1,5 @@
 package com.aor.pong.model.game.elements;
 
-import com.aor.pong.model.game.elements.Element;
-
 public class ScoreBoard extends Element {
     int score1;
     int score2;
