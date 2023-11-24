@@ -21,6 +21,8 @@ The model only represents the data of the classes that will be displayed.
 The view displays in the screen the data that is given to us from the model, and also sends the user inputs to the Controller.
   #### Controller
 The controller modifies the data from the Model based on the user inputs given by the View.
+### Strategy Pattern
+We needed to find a way to make the ElementViewer class have different behaviors, depending on the Element object to view. To sort this out, we are bound to implement the Strategy Pattern.
 
 ## Mockup
 ![Pong Game Mockup](Mockup.png)
