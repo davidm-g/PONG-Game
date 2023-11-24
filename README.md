@@ -13,4 +13,6 @@ in the sense that we need to implement some features that were not formerly expl
 - **Classic Pong Gameplay:** Experience the timeless gameplay of Pong with our own remake of this classic game!
 ## Mockup
 ![Pong Game Mockup](Mockup.png)
+## UML Diagram
+![UML Diagram](UML_Diagram.png)
 
