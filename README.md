@@ -23,6 +23,12 @@ The view displays in the screen the data that is given to us from the model, and
 The controller modifies the data from the Model based on the user inputs given by the View.
 ### Strategy Pattern
 We needed to find a way to make the ElementViewer class have different behaviors, depending on the Element object to view. To sort this out, we are bound to implement the Strategy Pattern.
+## Pattern Consequences
+ By implementing the patterns mentioned before, our code is bound to be built different.
+ ### Positive Consequences
+ Design Patterns offered many benefits in regards to our project designs. For example, due to the use of Strategy Pattern, flexibility and extensibility is promoted since we are separating the draw() algorithms belonging to the different implementations of ElementViewer. The MVC Pattern, on the other hand, promotes reusability, as it makes it easier to scale and reuse components independently. For instance, you can have multiple views for the same model. Another benefit of using these patterns would be the ability to make clean state transitions between GameState and MenuState with the principles of the State Pattern. 
+ ### Negative Consequences
+ Because not everything is perfect, we have also came up with some situations where Design Patterns have given us headaches. We have found that some Design Patterns make the code more challenging to navigate, due to the increased number of classes. The learning curve to these concepts is also quite present, as we took some time to get familiarized with all of them. Despite these and some more minor setbacks, we have every reason to support the implementation of the aformentioned Design Patters.
 
 ## Mockup
 ![Pong Game Mockup](Mockup.png)
