@@ -10,13 +10,10 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -64,27 +61,27 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPaddle1(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'H', "#0000FF");
     }
 
     @Override
     public void drawPaddle2(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'H', "#FF0000");
     }
 
     @Override
     public void drawWall(Position position) {
-        drawCharacter(position.getX(), position.getY(), '#', "#3333FF");
+        drawCharacter(position.getX(), position.getY(), '#', "#FFFFFF");
     }
 
     @Override
     public void drawBall(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'H', "#FFFFFF");
     }
 
     @Override
     public void drawScoreBoard(Position position) {
-
+        drawCharacter(position.getX(), position.getY(), 'H', "#FFFFFF");
     }
 
     @Override

@@ -1,8 +1,8 @@
 package com.aor.pong.model.game.arena;
 
+import com.aor.pong.model.game.elements.ScoreBoard;
 import com.aor.pong.model.game.elements.Ball;
 import com.aor.pong.model.game.elements.Paddle;
-import com.aor.pong.model.game.elements.ScoreBoard;
 
 public class Arena {
     private final int width;

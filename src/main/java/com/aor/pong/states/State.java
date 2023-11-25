@@ -1,11 +1,6 @@
 package com.aor.pong.states;
 
-import com.aor.pong.Game;
-import com.aor.pong.controller.Controller;
-import com.aor.pong.gui.GUI;
 import com.aor.pong.viewer.Viewer;
-
-import java.io.IOException;
 
 public abstract class State<T> {
     private final T model;

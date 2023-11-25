@@ -31,11 +31,11 @@ public class Menu {
         return currentEntry == i;
     }
 
-    public boolean isSelectedExit() {
+    public boolean isSelectedLeave() {
         return isSelected(1);
     }
 
-    public boolean isSelectedStart() {
+    public boolean isSelectedPlay() {
         return isSelected(0);
     }
 
