@@ -2,6 +2,8 @@ package com.aor.pong.states;
 
 
 //import com.aor.pong.controller.menu.MenuController;
+import com.aor.pong.controller.Controller;
+import com.aor.pong.controller.menu.MenuController;
 import com.aor.pong.model.menu.Menu;
 import com.aor.pong.viewer.menu.MenuViewer;
 import com.aor.pong.viewer.Viewer;
@@ -16,8 +18,8 @@ public class MenuState extends State<Menu> {
         return new MenuViewer(getModel());
     }
 
-    /*@Override
+    @Override
     protected Controller<Menu> getController() {
         return new MenuController(getModel());
-    }*/
+    }
 }

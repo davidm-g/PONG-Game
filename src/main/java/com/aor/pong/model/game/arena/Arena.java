@@ -1,5 +1,7 @@
 package com.aor.pong.model.game.arena;
 
+import com.aor.pong.gui.LanternaGUI;
+import com.aor.pong.model.Position;
 import com.aor.pong.model.game.elements.ScoreBoard;
 import com.aor.pong.model.game.elements.Ball;
 import com.aor.pong.model.game.elements.Paddle;
@@ -56,4 +58,13 @@ public class Arena {
     public void setScoreBoard(ScoreBoard scoreBoard) {
         this.scoreBoard = scoreBoard;
     }
+    public boolean CheckPos(Position position){
+        if(position.getY() < this.height && position.getY() > 0) return true;
+        return false;
+    }
+    public boolean CheckPosPaddle(Position position) {
+        if(position.getY() < this.height - LanternaGUI.getPaddleHeight()/2 + 2 && position.getY() > LanternaGUI.getPaddleHeight()/2 - 1) return true;
+        return false;
+    }
+
 }

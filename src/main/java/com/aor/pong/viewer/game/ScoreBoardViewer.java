@@ -5,5 +5,7 @@ import com.aor.pong.model.game.elements.ScoreBoard;
 
 public class ScoreBoardViewer implements ElementViewer<ScoreBoard>{
     @Override
-    public void draw(ScoreBoard scoreboard, GUI gui) { gui.drawScoreBoard(scoreboard.getPosition()); }
+    public void draw(ScoreBoard scoreboard, GUI gui) {
+        gui.drawScoreBoard(scoreboard.getPosition(),scoreboard.getScore1(),scoreboard.getScore2());
+    }
 }

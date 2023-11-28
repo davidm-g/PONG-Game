@@ -11,11 +11,9 @@ public interface GUI {
 
     void drawPaddle2(Position position);
 
-    void drawWall(Position position);
-
     void drawBall(Position position);
 
-    void drawScoreBoard(Position position);
+    void drawScoreBoard(Position position,int score1,int score2);
 
     void drawText(Position position, String text, String color);
 
@@ -25,5 +23,5 @@ public interface GUI {
 
     void close() throws IOException;
 
-    enum ACTION {UP, DOWN, NONE, QUIT, SELECT}
+    enum ACTION {PADDLE1UP, PADDLE1DOWN, PADDLE2UP, PADDLE2DOWN, NONE, QUIT, SELECT}
 }
