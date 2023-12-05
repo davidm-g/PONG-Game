@@ -26,6 +26,8 @@ public class LanternaGUI implements GUI {
     private final Screen screen;
     static final int PADDLE_WIDTH = 2;
     static final int PADDLE_HEIGHT = 6;
+    TextColor PADDLE1_COLOR = new TextColor.RGB(56,183,254);
+    TextColor PADDLE2_COLOR = new TextColor.RGB(225,54,54);
     int terminal_width, terminal_height;
     TextGraphics textGraphics;
     Terminal terminal;
@@ -88,7 +90,7 @@ public ACTION getNextAction() throws IOException {
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
-        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', TextColor.ANSI.CYAN, TextColor.ANSI.BLACK));
+        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE1_COLOR, TextColor.ANSI.BLACK));
     }
 
 
@@ -98,7 +100,7 @@ public ACTION getNextAction() throws IOException {
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
-        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', TextColor.ANSI.RED, TextColor.ANSI.BLACK));
+        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE2_COLOR, TextColor.ANSI.BLACK));
     }
 
     @Override

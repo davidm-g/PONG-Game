@@ -18,12 +18,12 @@ public class MenuViewer extends Viewer<Menu> {
             gui.drawText(
                     new Position(5, 7 + i),
                     getModel().getEntry(i),
-                    getModel().isSelected(i) ? "#0000FF" : "#FFFFFF");
+                    getModel().isSelected(i) ? "#38b7fe" : "#FFFFFF");
             else if(i==1)
                 gui.drawText(
                         new Position(5, 7 + i),
                         getModel().getEntry(i),
-                        getModel().isSelected(i) ? "#FF0000" : "#FFFFFF");
+                        getModel().isSelected(i) ? "#fe3031" : "#FFFFFF");
         }
 
     }
