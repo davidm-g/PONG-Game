@@ -29,6 +29,7 @@ public class ArenaController extends GameController {
         else {
             paddle2Controller.step(game, action, time);
             paddle1Controller.step(game, action, time);
+            ballController.step(game,action,time);
         }
     }
 }

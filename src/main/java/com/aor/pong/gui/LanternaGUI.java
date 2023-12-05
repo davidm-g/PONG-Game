@@ -40,6 +40,8 @@ public class LanternaGUI implements GUI {
         return PADDLE_HEIGHT;
     }
 
+    public static int getPaddleWidth() { return PADDLE_WIDTH; }
+
     public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
         //AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         this.terminal = createTerminal(width, height);
@@ -124,7 +126,6 @@ public ACTION getNextAction() throws IOException {
 
     @Override
     public void drawScoreBoard(Position position, int score1, int score2) {
-        textGraphics.drawLine(terminal_width/2, 0, terminal_width/2, terminal_height, '\u007C');
         textGraphics.putString(terminal_width/2 - 10, 2, String.valueOf(score1));
         textGraphics.putString(terminal_width/2 + 10, 2, String.valueOf(score2));
     }

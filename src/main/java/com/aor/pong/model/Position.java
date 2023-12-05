@@ -23,7 +23,7 @@ public class Position {
     public int getX() {
         return x;
     }
-
-
-
+    public Position getDirection(int xv, int yv){
+        return new Position(x += xv, y += yv);
+    }
 }
