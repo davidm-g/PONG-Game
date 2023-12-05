@@ -7,6 +7,7 @@ import com.aor.pong.model.game.arena.Arena;
 import com.aor.pong.model.game.elements.Ball;
 
 import java.io.IOException;
+import java.util.Random;
 
 public class BallController extends GameController{
     private long lastMovement;
@@ -16,36 +17,30 @@ public class BallController extends GameController{
     }
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (time - lastMovement > 100) {
+        if (time - lastMovement > 50) {
             moveBall(getModel().getBall(), getModel().getBall().getPosition().getDirection(getModel().getBall().getxVelocity(),getModel().getBall().getyVelocity()));
             this.lastMovement = time;
         }
     }
     public void moveBall(Ball ball, Position position) {
-        /*
+
         if (getModel().checkGoal()) {
+            ball.setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()/2));
+            Random random = new Random();
 
-        }
+            ball.setxVelocity(random.nextInt(2));
+            if(ball.getxVelocity() == 0)
+                ball.setxVelocity(ball.getxVelocity()-1);
 
-         */
-        if (getModel().checkColisionPaddles()) {
-            if (getModel().getBall().getxVelocity() < 0) {
-                getModel().getBall().setyVelocity(-getModel().getBall().getyVelocity() + 1);
-            }
-            else if (getModel().getBall().getxVelocity() > 0) {
-                getModel().getBall().setxVelocity(-getModel().getBall().getxVelocity() - 1);
-            }
-            if(getModel().getBall().getyVelocity() < 0) {
-                getModel().getBall().setyVelocity(-getModel().getBall().getyVelocity() + 1);
-            }
-            else if(getModel().getBall().getyVelocity() > 0)
-                getModel().getBall().setyVelocity(-getModel().getBall().getyVelocity() - 1);
+            ball.setyVelocity(random.nextInt(2));
+            if(ball.getyVelocity() == 0)
+                ball.setyVelocity(ball.getyVelocity() - 1);
         }
-
-        if (getModel().CheckBorderCollision()) {
-            getModel().getBall().setyVelocity(-getModel().getBall().getyVelocity());
+        else if (getModel().checkColisionPaddles()) {
+            ball.setxVelocity(-(getModel().getBall().getxVelocity()));
         }
-        getModel().getBall().setPosition(position);
+        else if (getModel().CheckBorderCollision()) {
+            ball.setyVelocity(-getModel().getBall().getyVelocity());
+        }
     }
-
 }

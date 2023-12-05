@@ -8,20 +8,18 @@ public class Ball extends Element {
     Random random;
     int xVelocity;
     int yVelocity;
-    int initialSpeed = 1;
 
     public Ball(int x, int y){
         super(x,y);
         random = new Random();
-        xVelocity = random.nextInt(2);
+        this.xVelocity = random.nextInt(2);
         if(xVelocity == 0)
             xVelocity--;
-        setxVelocity(xVelocity * initialSpeed);
 
-        yVelocity = random.nextInt(2);
+
+        this.yVelocity = random.nextInt(2);
         if(yVelocity == 0)
             yVelocity--;
-        setyVelocity(yVelocity * initialSpeed);
 
     }
 

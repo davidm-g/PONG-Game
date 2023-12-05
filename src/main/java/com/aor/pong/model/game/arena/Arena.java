@@ -69,7 +69,7 @@ public class Arena {
     public boolean CheckBorderCollision() {
 
         //bounce ball off top & bottom window edges
-        if (ball.getPosition().getY() <= 1 || ball.getPosition().getY() >= height - 1) {
+        if (ball.getPosition().getY() <= 0 || ball.getPosition().getY() >= height) {
             return true;
         }
         return false;
@@ -81,57 +81,26 @@ public class Arena {
                 ball.getPosition().getY() >= paddle1.getPosition().getY() - LanternaGUI.getPaddleHeight() / 2) {
             return true;
         }
-        else if (ball.getPosition().getX() >= width - LanternaGUI.getPaddleWidth() && // PADDLE 2
-                ball.getPosition().getY() <= paddle1.getPosition().getY() + LanternaGUI.getPaddleHeight() / 2 &&
-                ball.getPosition().getY() >= paddle1.getPosition().getY() - LanternaGUI.getPaddleHeight() / 2) {
+        else if (ball.getPosition().getX() >= width - LanternaGUI.getPaddleWidth() - 1 && // PADDLE 2
+                ball.getPosition().getY() <= paddle2.getPosition().getY() + LanternaGUI.getPaddleHeight() / 2 &&
+                ball.getPosition().getY() >= paddle2.getPosition().getY() - LanternaGUI.getPaddleHeight() / 2) {
             return true;
         }
         return false;
     }
-    /*
-            ball.setxVelocity(Math.abs(ball.getxVelocity()));
-            ball.setxVelocity(ball.getxVelocity()+1); //optional for more difficulty
-            if (ball.yVelocity > 0)
-                ball.yVelocity++; //optional for more difficulty
-            else
-                ball.yVelocity--;
-            ball.setxVelocity(ball.xVelocity);
-            ball.setyVelocity(ball.yVelocity);
 
-        if (ball.intersects(paddle2)) {
-            ball.xVelocity = Math.abs(ball.xVelocity);
-            ball.xVelocity++; //optional for more difficulty
-            if (ball.yVelocity > 0)
-                ball.yVelocity++; //optional for more difficulty
-            else
-                ball.yVelocity--;
-            ball.setxVelocity(-ball.xVelocity);
-            ball.setyVelocity(ball.yVelocity);
+
+    public boolean checkGoal() {
+        if (ball.getPosition().getX() <= 0) {
+            scoreBoard.alterScore2();
+            return true;
+        } else if (ball.getPosition().getX() >= width) {
+            scoreBoard.alterScore1();
+            return true;
         }
-    public boolean checkGoal(){
-    //stops paddles at window edges
-    if(paddle1.y<=0)
-        paddle1.y=0;
-    if(paddle1.y >= (GAME_HEIGHT-PADDLE_HEIGHT))
-        paddle1.y = GAME_HEIGHT-PADDLE_HEIGHT;
-    if(paddle2.y<=0)
-        paddle2.y=0;
-    if(paddle2.y >= (GAME_HEIGHT-PADDLE_HEIGHT))
-        paddle2.y = GAME_HEIGHT-PADDLE_HEIGHT;
-    //give a player 1 point and creates new paddles & ball
-    if(ball.x <=0) {
-        score.player2++;
-        newPaddles();
-        newBall();
-        System.out.println("Player 2: "+score.player2);
-    }
-    if(ball.x >= GAME_WIDTH-BALL_DIAMETER) {
-        score.player1++;
-        newPaddles();
-        newBall();
-        System.out.println("Player 1: "+score.player1);
-    }
+        return false;
     }
 
-     */
+
+
 }

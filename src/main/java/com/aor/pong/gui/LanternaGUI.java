@@ -1,9 +1,9 @@
 package com.aor.pong.gui;
 
 import com.aor.pong.model.Position;
-import com.aor.pong.model.game.elements.Paddle;
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextCharacter;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
@@ -12,15 +12,11 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.TextCharacter;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import org.w3c.dom.Text;
+import com.googlecode.lanterna.terminal.swing.SwingTerminal;
 
 import java.awt.*;
-import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
@@ -28,12 +24,14 @@ public class LanternaGUI implements GUI {
     static final int PADDLE_HEIGHT = 6;
     TextColor PADDLE1_COLOR = new TextColor.RGB(56,183,254);
     TextColor PADDLE2_COLOR = new TextColor.RGB(225,54,54);
+    TextColor BACKGROUND = new TextColor.RGB(18, 18, 18);
     int terminal_width, terminal_height;
     TextGraphics textGraphics;
     Terminal terminal;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
+        this.textGraphics = screen.newTextGraphics();
     }
 
     public static int getPaddleHeight() {
@@ -42,7 +40,7 @@ public class LanternaGUI implements GUI {
 
     public static int getPaddleWidth() { return PADDLE_WIDTH; }
 
-    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+    public LanternaGUI(int width, int height) throws IOException {
         //AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         this.terminal = createTerminal(width, height);
         this.terminal_width = width;
@@ -63,10 +61,12 @@ public class LanternaGUI implements GUI {
 
     private Terminal createTerminal(int width, int height) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
+
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
         //terminalFactory.setForceAWTOverSwing(true);
         //terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
@@ -92,7 +92,7 @@ public ACTION getNextAction() throws IOException {
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
-        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE1_COLOR, TextColor.ANSI.BLACK));
+        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE1_COLOR, BACKGROUND));
     }
 
 
@@ -102,14 +102,16 @@ public ACTION getNextAction() throws IOException {
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
-        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE2_COLOR, TextColor.ANSI.BLACK));
+        textGraphics.fillRectangle(top_left, tsize, new TextCharacter('\u2588', PADDLE2_COLOR, BACKGROUND));
     }
 
     @Override
     public void drawBall(Position position) {
+
         textGraphics.setForegroundColor(TextColor.ANSI.WHITE);
-        textGraphics.setBackgroundColor(TextColor.ANSI.BLACK);
+        textGraphics.setBackgroundColor(BACKGROUND);
         textGraphics.putString(position.getX(), position.getY(), "\u25CF");
+
     }
     /*private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
@@ -137,11 +139,6 @@ public ACTION getNextAction() throws IOException {
         tg.putString(position.getX(), position.getY(), text);
     }
 
-    private void drawCharacter(int x, int y, char c, String color) {
-        TextGraphics tg = screen.newTextGraphics();
-        tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y + 1, "" + c);
-    }
 
     @Override
     public void clear() {
