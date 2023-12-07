@@ -26,4 +26,11 @@ public class Position {
     public Position getDirection(int xv, int yv){
         return new Position(x += xv, y += yv);
     }
+    @Override
+    public String toString() {
+        return "Position{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

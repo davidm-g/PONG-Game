@@ -12,15 +12,17 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.SwingTerminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
-    static final int PADDLE_WIDTH = 2;
+    static final int PADDLE_WIDTH = 1;
     static final int PADDLE_HEIGHT = 6;
     TextColor PADDLE1_COLOR = new TextColor.RGB(56,183,254);
     TextColor PADDLE2_COLOR = new TextColor.RGB(225,54,54);
@@ -40,9 +42,9 @@ public class LanternaGUI implements GUI {
 
     public static int getPaddleWidth() { return PADDLE_WIDTH; }
 
-    public LanternaGUI(int width, int height) throws IOException {
-        //AWTTerminalFontConfiguration fontConfig = loadSquareFont();
-        this.terminal = createTerminal(width, height);
+    public LanternaGUI(int width, int height) throws IOException, FontFormatException, URISyntaxException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        this.terminal = createTerminal(width, height, fontConfig);
         this.terminal_width = width;
         this.terminal_height = height;
         this.screen = createScreen(terminal);
@@ -59,17 +61,31 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height) throws IOException {
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(width, height + 1);
 
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory()
                 .setInitialTerminalSize(terminalSize);
-        //terminalFactory.setForceAWTOverSwing(true);
-        //terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
+        terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
 
         Terminal terminal = terminalFactory.createTerminal();
         return terminal;
     }
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
+    }
+
 public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
@@ -88,7 +104,7 @@ public ACTION getNextAction() throws IOException {
 
     @Override
     public void drawPaddle1(Position position) {
-        TerminalPosition top_left = new TerminalPosition(position.getX() - PADDLE_WIDTH/2 + 1, position.getY() - PADDLE_HEIGHT/2);
+        TerminalPosition top_left = new TerminalPosition(position.getX() - PADDLE_WIDTH + 1, position.getY() - PADDLE_HEIGHT/2);
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
@@ -113,23 +129,12 @@ public ACTION getNextAction() throws IOException {
         textGraphics.putString(position.getX(), position.getY(), "\u25CF");
 
     }
-    /*private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
-        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        File fontFile = new File(resource.toURI());
-        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
-        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-        ge.registerFont(font);
-
-        Font loadedFont = font.deriveFont(Font.PLAIN, );
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
-    }*/
 
     @Override
     public void drawScoreBoard(Position position, int score1, int score2) {
-        textGraphics.putString(terminal_width/2 - 10, 2, String.valueOf(score1));
-        textGraphics.putString(terminal_width/2 + 10, 2, String.valueOf(score2));
+        textGraphics.putString(position.getX() - 10, 2, String.valueOf(score1));
+        textGraphics.putString(position.getX() + 10, 2, String.valueOf(score2));
     }
 
     @Override

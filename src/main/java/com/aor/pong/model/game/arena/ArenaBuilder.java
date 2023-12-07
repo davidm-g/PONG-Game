@@ -8,7 +8,7 @@ import java.util.List;
 
 public class ArenaBuilder {
     public Arena createArena() {
-        Arena arena = new Arena(120, 30);
+        Arena arena = new Arena(40, 20);
 
         arena.setPaddle1(createPaddle1(0,arena.getHeight()/2));
         arena.setPaddle2(createPaddle2(arena.getWidth(), arena.getHeight()/2));

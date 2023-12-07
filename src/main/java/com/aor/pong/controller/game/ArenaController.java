@@ -24,7 +24,8 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT)
+        if (action == GUI.ACTION.QUIT || getModel().getScoreBoard().getScore2() >= 11 ||
+        getModel().getScoreBoard().getScore1() >= 11)
             game.setState(new MenuState(new Menu()));
         else {
             paddle2Controller.step(game, action, time);

@@ -12,16 +12,16 @@ public class MenuViewer extends Viewer<Menu> {
 
     @Override
     public void drawElements(GUI gui) {
-        gui.drawText(new Position(60, 5), "Menu", "#FFFFFF");
+        gui.drawText(new Position(18, 3), "Menu", "#FFFFFF");
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if(i==0)
             gui.drawText(
-                    new Position(5, 7 + i),
+                    new Position(5, 8 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#38b7fe" : "#FFFFFF");
             else if(i==1)
                 gui.drawText(
-                        new Position(5, 7 + i),
+                        new Position(5, 10 + i),
                         getModel().getEntry(i),
                         getModel().isSelected(i) ? "#fe3031" : "#FFFFFF");
         }
