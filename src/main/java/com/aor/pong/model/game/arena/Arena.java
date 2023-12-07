@@ -91,10 +91,10 @@ public class Arena {
 
 
     public boolean checkGoal() {
-        if (ball.getPosition().getX() <= 0) {
+        if (ball.getPosition().getX() < LanternaGUI.getPaddleWidth()) {
             scoreBoard.alterScore2();
             return true;
-        } else if (ball.getPosition().getX() >= width) {
+        } else if (ball.getPosition().getX() > width - LanternaGUI.getPaddleWidth() - 1) {
             scoreBoard.alterScore1();
             return true;
         }
@@ -104,3 +104,4 @@ public class Arena {
 
 
 }
+

@@ -23,10 +23,20 @@ public class BallController extends GameController{
         }
     }
     public void moveBall(Ball ball, Position position) {
+        if (getModel().CheckBorderCollision()) {
+            ball.setyVelocity(-getModel().getBall().getyVelocity());
+        }
+
+        if (getModel().checkColisionPaddles()) {
+            ball.setxVelocity(-(getModel().getBall().getxVelocity()));
+        }
 
         if (getModel().checkGoal()) {
+            getModel().getPaddle1().setPosition(new Position(0,getModel().getHeight()/2));
+            getModel().getPaddle2().setPosition(new Position(getModel().getWidth(), getModel().getHeight()/2));
             ball.setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()/2));
             Random random = new Random();
+
 
             ball.setxVelocity(random.nextInt(2));
             if(ball.getxVelocity() == 0)
@@ -36,11 +46,6 @@ public class BallController extends GameController{
             if(ball.getyVelocity() == 0)
                 ball.setyVelocity(ball.getyVelocity() - 1);
         }
-        else if (getModel().checkColisionPaddles()) {
-            ball.setxVelocity(-(getModel().getBall().getxVelocity()));
-        }
-        else if (getModel().CheckBorderCollision()) {
-            ball.setyVelocity(-getModel().getBall().getyVelocity());
-        }
+
     }
 }

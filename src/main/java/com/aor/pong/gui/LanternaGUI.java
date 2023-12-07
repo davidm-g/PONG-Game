@@ -133,8 +133,8 @@ public ACTION getNextAction() throws IOException {
 
     @Override
     public void drawScoreBoard(Position position, int score1, int score2) {
-        textGraphics.putString(position.getX() - 10, 2, String.valueOf(score1));
-        textGraphics.putString(position.getX() + 10, 2, String.valueOf(score2));
+        textGraphics.putString(position.getX() - 3, 2, String.valueOf(score1));
+        textGraphics.putString(position.getX() + 3, 2, String.valueOf(score2));
     }
 
     @Override

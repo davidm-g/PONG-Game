@@ -4,9 +4,11 @@ package com.aor.pong.controller.game;
 
 import com.aor.pong.Game;
 import com.aor.pong.gui.GUI;
+import com.aor.pong.model.Winner.Winner;
 import com.aor.pong.model.game.arena.Arena;
 import com.aor.pong.model.menu.Menu;
 import com.aor.pong.states.MenuState;
+import com.aor.pong.states.WinnerState;
 
 import java.io.IOException;
 
@@ -24,9 +26,15 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, GUI.ACTION action, long time) throws IOException {
-        if (action == GUI.ACTION.QUIT || getModel().getScoreBoard().getScore2() >= 11 ||
-        getModel().getScoreBoard().getScore1() >= 11)
+        if (action == GUI.ACTION.QUIT){
             game.setState(new MenuState(new Menu()));
+        }
+        else if(getModel().getScoreBoard().getScore2() >= 11)
+            game.setState(new WinnerState(new Winner(2)));
+
+
+        else if (getModel().getScoreBoard().getScore1() >= 11)
+            game.setState(new WinnerState(new Winner(1)));
         else {
             paddle2Controller.step(game, action, time);
             paddle1Controller.step(game, action, time);
