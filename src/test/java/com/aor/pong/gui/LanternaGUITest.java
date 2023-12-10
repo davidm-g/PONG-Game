@@ -44,18 +44,18 @@ class LanternaGUITest {
 
     @Test
     void drawPaddle1() {
-        gui.drawPaddle1(new Position(0, 15));
-        TerminalPosition top_left = new TerminalPosition(0, 12);
-        TerminalSize tsize = new TerminalSize(2, 6);
+        gui.drawPaddle1(new Position(1, 10));
+        TerminalPosition top_left = new TerminalPosition(1, 7);
+        TerminalSize tsize = new TerminalSize(1, 6);
 
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(top_left,tsize,new TextCharacter('\u2588', new TextColor.RGB(56,183,254), new TextColor.RGB(18, 18, 18)));
     }
 
     @Test
     void drawPaddle2() {
-        gui.drawPaddle2(new Position(120, 15));
-        TerminalPosition top_left = new TerminalPosition(118, 12);
-        TerminalSize tsize = new TerminalSize(2, 6);
+        gui.drawPaddle2(new Position(39, 10));
+        TerminalPosition top_left = new TerminalPosition(38, 7);
+        TerminalSize tsize = new TerminalSize(1, 6);
 
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(top_left, tsize, new TextCharacter('\u2588', new TextColor.RGB(225,54,54), new TextColor.RGB(18, 18, 18)));
     }
@@ -64,9 +64,9 @@ class LanternaGUITest {
     @Test
     void drawScoreboard() {
 
-        gui.drawScoreBoard(new Position(60, 5),0,0);
-        Mockito.verify(tg, Mockito.times(1)).putString(50,2,String.valueOf(0));
-        Mockito.verify(tg, Mockito.times(1)).putString(70, 2,String.valueOf(0));
+        gui.drawScoreBoard(new Position(20, 5),0,0);
+        Mockito.verify(tg, Mockito.times(1)).putString(17,2,String.valueOf(0));
+        Mockito.verify(tg, Mockito.times(1)).putString(23, 2,String.valueOf(0));
 
 
     }

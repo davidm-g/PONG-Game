@@ -18,8 +18,8 @@ public class PaddleViewerTest {
 
     @BeforeEach
     void setUp() {
-        paddle1 = new Paddle(0, 15);
-        paddle2 = new Paddle(120,15);
+        paddle1 = new Paddle(0, 10);
+        paddle2 = new Paddle(40,10);
         viewer1 = new Paddle1Viewer();
         viewer2 = new Paddle2Viewer();
         gui = Mockito.mock(GUI.class);
@@ -30,7 +30,7 @@ public class PaddleViewerTest {
         viewer1.draw(paddle1, gui);
         viewer2.draw(paddle2,gui);
         Mockito.verify(gui, Mockito.times(1)).drawPaddle1(paddle1.getPosition());
-        Mockito.verify(gui, Mockito.times(1)).drawPaddle1(paddle2.getPosition());
+        Mockito.verify(gui, Mockito.times(1)).drawPaddle2(paddle2.getPosition());
 
     }
 }

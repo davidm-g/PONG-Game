@@ -25,13 +25,13 @@ public class ArenaViewerTest {
 
     @BeforeEach
     void setUp() {
-        arena = new Arena(120, 30);
+        arena = new Arena(40, 20);
         gui = Mockito.mock(GUI.class);
         viewer = new GameViewer(arena);
-        arena.setScoreBoard(new ScoreBoard(60,5));
-        arena.setBall(new Ball(60,15));
-        arena.setPaddle1(new Paddle(0, 15));
-        arena.setPaddle2(new Paddle(120,15));
+        arena.setScoreBoard(new ScoreBoard(20,5));
+        arena.setBall(new Ball(20,10));
+        arena.setPaddle1(new Paddle(0, 10));
+        arena.setPaddle2(new Paddle(40,10));
 
     }
 
