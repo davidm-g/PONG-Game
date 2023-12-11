@@ -6,8 +6,9 @@ import com.aor.pong.model.Winner.Winner;
 import com.aor.pong.viewer.Viewer;
 
 public class WinnerViewer extends Viewer<Winner> {
-    public WinnerViewer(Winner winner){super(winner);}
-
+    public WinnerViewer(Winner winner) {
+        super(winner);
+    }
     public void drawSymbol(GUI gui) {
 
         String s1 = "   _________    __  _________";

@@ -30,6 +30,7 @@ public class LanternaGUI implements GUI {
     int terminal_width, terminal_height;
     TextGraphics textGraphics;
     Terminal terminal;
+    private Font font;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
