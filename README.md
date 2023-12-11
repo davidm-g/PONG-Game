@@ -6,6 +6,12 @@ We decided on this game because although it is simple, allowing us to focus on f
 with close attention to the use of appropriate design patterns and complete testing, it also is different from previous projects and exercises we have done,
 in the sense that we need to implement some features that were not formerly explored in our lectures, like the physics of the ball.
 ## List Of Features
+- **Player vs. Player:** Engage in a head-to-head battle with a friend.
+- **Responsive Controls:** Move your paddle up and down to hit the ball, be careful not to let it pass you or your opponent will score.
+- **Realistic Ball Movement:** The ball will bounce off the walls in a realistic way, in the direction you would expect.
+- **Score Tracking:** Keep track of the score for each player, the first to 11 wins.
+- **Classic Pong Gameplay:** Experience the timeless gameplay of Pong with our own remake of this classic game!
+  
 For this project we are aiming to use five Design Patterns:
 ### Game Loop Pattern
 The game loop pattern is essentially a loop that repeats at a consistent rate, ensuring that the game progresses smoothly over time. For our work, this pattern will be implemented in the "State" class, and with each iteration the position of the paddles, ball, and potentially the score of the game will all be updated.  
