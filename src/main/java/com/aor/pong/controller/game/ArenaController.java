@@ -29,7 +29,7 @@ public class ArenaController extends GameController {
         if (action == GUI.ACTION.QUIT){
             game.setState(new MenuState(new Menu()));
         }
-        else if(getModel().getScoreBoard().getScore2() >= 11)
+        else if(getModel().getScoreBoard().getScore2() >= 1)
             game.setState(new WinnerState(new Winner(2)));
 
 

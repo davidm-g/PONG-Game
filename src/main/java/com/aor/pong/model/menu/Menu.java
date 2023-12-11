@@ -12,15 +12,19 @@ public class Menu {
     }
 
     public void nextEntry() {
-        currentEntry++;
-        if (currentEntry > this.entries.size() - 1)
+        if (currentEntry + 1 > this.entries.size() - 1)
             currentEntry = 0;
+        else currentEntry++;
+    }
+
+    public int getCurrentEntry() {
+        return currentEntry;
     }
 
     public void previousEntry() {
-        currentEntry--;
-        if (currentEntry < 0)
+        if (currentEntry - 1 < 0)
             currentEntry = this.entries.size() - 1;
+        else currentEntry--;
     }
 
     public String getEntry(int i) {

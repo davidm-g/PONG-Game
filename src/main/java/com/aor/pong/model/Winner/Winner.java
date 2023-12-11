@@ -49,5 +49,8 @@ public class Winner {
             return this.entries.size();
         }
 
+    public int getCurrentEntry() {
+        return currentEntry;
+    }
 }
 
