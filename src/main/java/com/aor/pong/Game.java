@@ -1,5 +1,7 @@
 package com.aor.pong;
 
+import com.aor.pong.controller.MusicManager;
+import com.aor.pong.controller.Sounds;
 import com.aor.pong.gui.LanternaGUI;
 import com.aor.pong.model.menu.Menu;
 import com.aor.pong.states.MenuState;
@@ -15,6 +17,7 @@ public class Game {
 
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 20);
+        MusicManager.getInstance().start(Sounds.MENU);
         this.state = new MenuState(new Menu());
     }
 

@@ -2,6 +2,8 @@ package com.aor.pong.controller.Winner;
 
 import com.aor.pong.Game;
 import com.aor.pong.controller.Controller;
+import com.aor.pong.controller.MusicManager;
+import com.aor.pong.controller.Sounds;
 import com.aor.pong.gui.GUI;
 import com.aor.pong.model.Winner.Winner;
 import com.aor.pong.model.game.arena.ArenaBuilder;
@@ -26,8 +28,15 @@ public class WinnerController extends Controller<Winner> {
                 getModel().nextEntry();
                 break;
             case SELECT:
-                if (getModel().isSelectedMenu()) game.setState(new MenuState(new Menu()));
-                if (getModel().isSelectedPlay()) game.setState(new GameState(new ArenaBuilder().createArena()));
+                if (getModel().isSelectedMenu()) {
+                    MusicManager.getInstance().stopAll();
+                    MusicManager.getInstance().start(Sounds.MENU);
+                    game.setState(new MenuState(new Menu()));
+                }
+                if (getModel().isSelectedPlay()) {
+                    MusicManager.getInstance().stopAll();
+                    game.setState(new GameState(new ArenaBuilder().createArena()));
+                }
         }
     }
 }

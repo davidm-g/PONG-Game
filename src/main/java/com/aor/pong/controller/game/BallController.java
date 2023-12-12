@@ -1,6 +1,8 @@
 package com.aor.pong.controller.game;
 
 import com.aor.pong.Game;
+import com.aor.pong.controller.MusicManager;
+import com.aor.pong.controller.Sounds;
 import com.aor.pong.gui.GUI;
 import com.aor.pong.model.Position;
 import com.aor.pong.model.game.arena.Arena;
@@ -24,14 +26,20 @@ public class BallController extends GameController{
     }
     public void moveBall(Ball ball, Position position) {
         if (getModel().CheckBorderCollision()) {
+            MusicManager.getInstance().stopAll();
+            MusicManager.getInstance().start(Sounds.HIT);
             ball.setyVelocity(-getModel().getBall().getyVelocity());
         }
 
         if (getModel().checkColisionPaddles()) {
+            MusicManager.getInstance().stopAll();
+            MusicManager.getInstance().start(Sounds.PADDLE);
             ball.setxVelocity(-(getModel().getBall().getxVelocity()));
         }
 
         if (getModel().checkGoal()) {
+            MusicManager.getInstance().stopAll();
+            MusicManager.getInstance().start(Sounds.GOAL);
             getModel().getPaddle1().setPosition(new Position(0,getModel().getHeight()/2));
             getModel().getPaddle2().setPosition(new Position(getModel().getWidth(), getModel().getHeight()/2));
             ball.setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()/2));
