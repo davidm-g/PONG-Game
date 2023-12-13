@@ -8,9 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
+import org.mockito.internal.matchers.Null;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import javax.lang.model.type.NullType;
+
+import java.lang.reflect.Field;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class MusicManagerTest {
     @Mock
@@ -33,11 +37,12 @@ public class MusicManagerTest {
         gameOverMock=Mockito.mock(Music.class);
         musicManager=MusicManager.getInstance();
         musicManager.setMenu(menuMock);
-        musicManager.setGoal(goalMock);
+       musicManager.setGoal(goalMock);
         musicManager.setHit(hitMock);
         musicManager.setPaddle(paddleMock);
         musicManager.setGameOver(gameOverMock);
     }
+
     @Test
     void startMenuLoop(){
         musicManager.setMenu(menuMock);

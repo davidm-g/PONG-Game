@@ -2,11 +2,14 @@ package com.aor.pong.Controller;
 
 import com.aor.pong.controller.Music;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
 
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 
+import static java.lang.Thread.sleep;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class MusicTest {
@@ -16,15 +19,21 @@ public class MusicTest {
         assertNotNull(music.getSound());
     }
     @Test
-    public void testStartLoop(){
+    public void testStartLoop() throws InterruptedException {
+        Clip clipMock=Mockito.mock(Clip.class);
         Music music = new Music("goal.wav");
-        assertFalse(music.isPlaying());
+        music.setSound(clipMock);
         music.startLoop();
-        assertTrue(music.isPlaying());
+        Mockito.verify(clipMock,Mockito.times(1)).setMicrosecondPosition(0);
+        Mockito.verify(clipMock,Mockito.times(1)).start();
+        Mockito.verify(clipMock,Mockito.times(1)).loop(Clip.LOOP_CONTINUOUSLY);
+
     }
     @Test
     public void testStart(){
         Music music = new Music("hit.wav");
+        FloatControl floatControl=(FloatControl) music.getSound().getControl(FloatControl.Type.MASTER_GAIN);
+        assertEquals(-25.0f,floatControl.getValue());
         assertFalse(music.isPlaying());
         music.start();
         assertTrue(music.isPlaying());
@@ -44,6 +53,25 @@ public class MusicTest {
         Clip newSound = AudioSystem.getClip();
         music.setSound(newSound);
         assertEquals(newSound,music.getSound());
+    }
+    @Test
+    void testLoadSoundNull(){
+        Music music=new Music("shoutouttelmo.wav");
+        assertNull(music.getSound());
+    }
+    @Test
+    void testSetSoundNull(){
+        Music music= new Music("hit.wav");
+        music.setSound(null);
+        assertNull(music.getSound());
+    }
+    @Test
+    void testSetMicroPosition(){
+        Clip clipMock=Mockito.mock(Clip.class);
+        Music music = new Music("goal.wav");
+        music.setSound(clipMock);
+        music.start();
+        Mockito.verify(clipMock,Mockito.times(1)).setMicrosecondPosition(0);
     }
 
 }
