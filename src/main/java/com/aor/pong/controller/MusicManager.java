@@ -28,6 +28,8 @@ public class MusicManager {
         this.menu = menu;
     }
 
+
+
     public void setHit(Music hit) {
         this.hit = hit;
     }
