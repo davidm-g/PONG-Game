@@ -26,6 +26,7 @@ class LanternaGUITest {
 
         Mockito.when(screen.newTextGraphics()).thenReturn(tg);
         gui = new LanternaGUI(screen);
+        LanternaGUI.setMode(0);
     }
     @Test
     void drawBall() {
@@ -45,8 +46,8 @@ class LanternaGUITest {
     @Test
     void drawPaddle1() {
         gui.drawPaddle1(new Position(1, 10));
-        TerminalPosition top_left = new TerminalPosition(1, 7);
-        TerminalSize tsize = new TerminalSize(1, 6);
+        TerminalPosition top_left = new TerminalPosition(1, 8);
+        TerminalSize tsize = new TerminalSize(1, 4);
 
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(top_left,tsize,new TextCharacter('\u2588', new TextColor.RGB(56,183,254), new TextColor.RGB(18, 18, 18)));
     }
@@ -54,8 +55,8 @@ class LanternaGUITest {
     @Test
     void drawPaddle2() {
         gui.drawPaddle2(new Position(39, 10));
-        TerminalPosition top_left = new TerminalPosition(38, 7);
-        TerminalSize tsize = new TerminalSize(1, 6);
+        TerminalPosition top_left = new TerminalPosition(38, 8);
+        TerminalSize tsize = new TerminalSize(1, 4);
 
         Mockito.verify(tg, Mockito.times(1)).fillRectangle(top_left, tsize, new TextCharacter('\u2588', new TextColor.RGB(225,54,54), new TextColor.RGB(18, 18, 18)));
     }

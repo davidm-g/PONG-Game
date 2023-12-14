@@ -4,8 +4,6 @@ import com.aor.pong.model.game.elements.Paddle;
 import com.aor.pong.model.game.elements.Ball;
 import com.aor.pong.model.game.elements.ScoreBoard;
 
-import java.util.List;
-
 public class ArenaBuilder {
     public Arena createArena() {
         Arena arena = new Arena(40, 20);

@@ -23,7 +23,7 @@ import java.net.URL;
 public class LanternaGUI implements GUI {
     private final Screen screen;
     static final int PADDLE_WIDTH = 1;
-    static final int PADDLE_HEIGHT = 6;
+    private static int PADDLE_HEIGHT;
     TextColor PADDLE1_COLOR = new TextColor.RGB(56,183,254);
     TextColor PADDLE2_COLOR = new TextColor.RGB(225,54,54);
     TextColor BACKGROUND = new TextColor.RGB(18, 18, 18);
@@ -35,6 +35,10 @@ public class LanternaGUI implements GUI {
     public LanternaGUI(Screen screen) {
         this.screen = screen;
         this.textGraphics = screen.newTextGraphics();
+    }
+
+    public static void setMode(int mode) {
+        PADDLE_HEIGHT = 4 + 3*mode;
     }
 
     public static int getPaddleHeight() {
@@ -87,7 +91,8 @@ public class LanternaGUI implements GUI {
         return fontConfig;
     }
 
-public ACTION getNextAction() throws IOException {
+
+    public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
 

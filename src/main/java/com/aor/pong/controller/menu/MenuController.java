@@ -8,7 +8,9 @@ import com.aor.pong.gui.GUI;
 import com.aor.pong.model.game.arena.Arena;
 import com.aor.pong.model.game.arena.ArenaBuilder;
 import com.aor.pong.model.menu.Menu;
+import com.aor.pong.model.mode.Mode;
 import com.aor.pong.states.GameState;
+import com.aor.pong.states.ModeState;
 
 import java.io.IOException;
 
@@ -29,8 +31,7 @@ public class MenuController extends Controller<Menu> {
             case SELECT:
                 if (getModel().isSelectedLeave()) game.setState(null);
                 if (getModel().isSelectedPlay())  {
-                    MusicManager.getInstance().stopAll();
-                    game.setState(new GameState(new ArenaBuilder().createArena()));
+                    game.setState(new ModeState(new Mode()));
                 }
         }
     }
