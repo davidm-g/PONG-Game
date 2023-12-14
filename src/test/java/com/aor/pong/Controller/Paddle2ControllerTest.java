@@ -1,39 +1,49 @@
 package com.aor.pong.Controller;
 
-import com.aor.pong.controller.game.Paddle1Controller;
+
+import com.aor.pong.controller.game.Paddle2Controller;
 import com.aor.pong.model.Position;
 import com.aor.pong.model.game.arena.Arena;
 import com.aor.pong.model.game.elements.Paddle;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 
 public class Paddle2ControllerTest {
-    private Paddle1Controller controller;
-    private Paddle paddle1;
+    private Paddle2Controller controller;
+
     private Arena arena;
 
     @BeforeEach
     void setUp() {
-        arena = new Arena(40, 20);
-
-        paddle1 = new Paddle(0, 10);
-        arena.setPaddle1(paddle1);
-
-        controller = new Paddle1Controller(arena);
+        arena = Mockito.mock(Arena.class);
+        controller = new Paddle2Controller(arena);
     }
 
     @Test
-    void movePaddle1UP() {
-        controller.movePaddle1Up();
-        Position position = new Position(0,9);
-        assert(position.getY() == paddle1.getPosition().getY());
+    void movePaddle2UP() {
+        Paddle Paddle2= new Paddle(40,10);
+        Mockito.when(arena.CheckPosPaddle(any(Position.class))).thenReturn(true);
+        Mockito.when(arena.getPaddle2()).thenReturn(Paddle2);
+        controller.movePaddle2Up();
+        Mockito.verify(arena,Mockito.times(2)).getPaddle2();
+        Mockito.verify(arena,Mockito.times(1)).CheckPosPaddle(Paddle2.getPosition());
+        assertEquals(new Position(40,9),Paddle2.getPosition());
     }
 
     @Test
-    void movePaddle1DOWN() {
-
-        controller.movePaddle1Down();
-        Position position = new Position(0,11);
-        assert(position.getY() == paddle1.getPosition().getY());
+    void movePaddle2Down() {
+        Paddle Paddle2= new Paddle(40,10);
+        Mockito.when(arena.CheckPosPaddle(any(Position.class))).thenReturn(true);
+        Mockito.when(arena.getPaddle2()).thenReturn(Paddle2);
+        controller.movePaddle2Down();
+        Mockito.verify(arena,Mockito.times(2)).getPaddle2();
+        Mockito.verify(arena,Mockito.times(1)).CheckPosPaddle(Paddle2.getPosition());
+        assertEquals(new Position(40,11),Paddle2.getPosition());
     }
+
+
 }
