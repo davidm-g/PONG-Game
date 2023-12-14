@@ -6,6 +6,7 @@ import com.aor.pong.controller.menu.MenuController;
 import com.aor.pong.gui.GUI;
 import com.aor.pong.model.menu.Menu;
 import com.aor.pong.states.GameState;
+import com.aor.pong.states.ModeState;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -61,6 +62,6 @@ public class MenuControllerTest {
         menuController.step(mockGame, GUI.ACTION.SELECT, 0);
 
         Mockito.verify(mockMenu, Mockito.times(1)).isSelectedPlay();
-        Mockito.verify(mockGame, Mockito.times(1)).setState(Mockito.any(GameState.class));
+        Mockito.verify(mockGame, Mockito.times(1)).setState(Mockito.any(ModeState.class));
     }
 }
