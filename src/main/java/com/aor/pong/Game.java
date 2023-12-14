@@ -49,4 +49,8 @@ public class Game {
 
         gui.close();
     }
+
+    public State getState() {
+        return state;
+    }
 }
