@@ -14,10 +14,11 @@ import java.net.URISyntaxException;
 public class Game {
     private final LanternaGUI gui;
     private State state;
-
+    MusicManager musicManager;
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 20);
-        MusicManager.getInstance().start(Sounds.MENU);
+        musicManager = MusicManager.getInstance();
+        musicManager.start(Sounds.MENU);
         this.state = new MenuState(new Menu());
     }
 
