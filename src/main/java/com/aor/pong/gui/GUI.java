@@ -13,7 +13,7 @@ public interface GUI {
 
     void drawBall(Position position);
 
-    void drawScoreBoard(Position position,int score1,int score2);
+    void drawScoreBoard(Position position,int score1,int score2, String name, String name2);
 
     void drawText(Position position, String text, String color);
 

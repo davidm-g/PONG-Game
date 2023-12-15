@@ -60,13 +60,13 @@ public class Arena {
     }
 
     public boolean CheckPosPaddle(Position position) {
-        if(position.getY() < this.height - LanternaGUI.getPaddleHeight()/2 + 2 && position.getY() > LanternaGUI.getPaddleHeight()/2 - 1) return true;
+        if(position.getY() < this.height - LanternaGUI.getPaddleHeight()/2 + 2 && position.getY() > LanternaGUI.getPaddleHeight()/2 + 3) return true;
         return false;
     }
     public boolean CheckBorderCollision() {
 
         //bounce ball off top & bottom window edges
-        if (ball.getPosition().getY() <= 0 || ball.getPosition().getY() >= height) {
+        if (ball.getPosition().getY() <= 3 || ball.getPosition().getY() >= height) {
             return true;
         }
         return false;

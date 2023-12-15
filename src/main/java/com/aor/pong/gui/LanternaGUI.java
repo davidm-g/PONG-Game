@@ -138,9 +138,12 @@ public class LanternaGUI implements GUI {
 
 
     @Override
-    public void drawScoreBoard(Position position, int score1, int score2) {
-        textGraphics.putString(position.getX() - 3, 2, String.valueOf(score1));
-        textGraphics.putString(position.getX() + 3, 2, String.valueOf(score2));
+    public void drawScoreBoard(Position position, int score1, int score2, String name1, String name2) {
+        textGraphics.putString(position.getX() - 3, 1, String.valueOf(score1));
+        textGraphics.putString(position.getX() + 3, 1, String.valueOf(score2));
+        textGraphics.drawLine(0, 3, terminal_width, 3, '\u2588');
+        textGraphics.putString(position.getX() - name1.length() - 7, 1, name1);
+        textGraphics.putString(position.getX() + 8, 1, name2);
     }
 
     @Override

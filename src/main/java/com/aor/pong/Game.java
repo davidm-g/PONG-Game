@@ -16,7 +16,7 @@ public class Game {
     private State state;
     MusicManager musicManager;
     public Game() throws FontFormatException, IOException, URISyntaxException {
-        this.gui = new LanternaGUI(40, 20);
+        this.gui = new LanternaGUI(40, 23);
         musicManager = MusicManager.getInstance();
         musicManager.start(Sounds.MENU);
         this.state = new MenuState(new Menu());
