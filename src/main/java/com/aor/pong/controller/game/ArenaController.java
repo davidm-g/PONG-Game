@@ -33,12 +33,12 @@ public class ArenaController extends GameController {
             MusicManager.getInstance().start(Sounds.MENU);
             game.setState(new MenuState(new Menu()));
         }
-        else if(getModel().getScoreBoard().getScore2() >= 1) {
+        else if(getModel().getScoreBoard().getScore2() >= 11) {
             MusicManager.getInstance().stopAll();
             MusicManager.getInstance().start(Sounds.GAMEOVER);
             game.setState(new WinnerState(new Winner(2)));
         }
-        else if (getModel().getScoreBoard().getScore1() >= 1) {
+        else if (getModel().getScoreBoard().getScore1() >= 11) {
             MusicManager.getInstance().stopAll();
             MusicManager.getInstance().start(Sounds.GAMEOVER);
             game.setState(new WinnerState(new Winner(1)));
