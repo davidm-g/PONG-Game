@@ -8,18 +8,33 @@ public class Ball extends Element {
     Random random;
     int xVelocity;
     int yVelocity;
+    int initialXSpeed;
+
+    public int getInitialXSpeed() {
+        return initialXSpeed;
+    }
+
+    public int getInitialYSpeed() {
+        return initialYSpeed;
+    }
+
+    int initialYSpeed;
 
     public Ball(int x, int y){
         super(x,y);
         random = new Random();
-        this.xVelocity = random.nextInt(2);
-        if(xVelocity == 0)
-            xVelocity--;
 
+        initialXSpeed = random.nextInt(2);
+        if(initialXSpeed == 0)
+            xVelocity = -1;
+        else
+            xVelocity = initialXSpeed;
 
-        this.yVelocity = random.nextInt(2);
-        if(yVelocity == 0)
-            yVelocity--;
+        initialYSpeed = random.nextInt(2);
+        if(initialYSpeed == 0)
+            yVelocity = -1;
+        else
+            yVelocity = initialYSpeed;
 
     }
 
