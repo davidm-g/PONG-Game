@@ -14,7 +14,7 @@ This project was developed by Afonso Domingues (up202207313@fe.up.pt), David Gon
 - **Responsive Controls:** - Players may move their paddles up and down to hit the ball through keyboard inputs that are interpreted according to the current game state;
 - **Collisions Dection:** - Collisions between the ball, walls and paddles are verified. The ball will bounce off the walls and paddles in a realistic way, in the direction you would expect.
 - **Score Tracking:** - Keep track of the score for each player, the first to 11 wins.
-- **Music and Sound Effects** - 
+- **Music and Sound Effects** - Integration of music and sound effects in Pong, enhancing the gaming experience, providing an immersive and engaging environment for players.
 - **Use of Threads** - The use of threads is associated with the game flow. It prevents the game from running too fast or too slow on different systems. It separates the game logic from the GUI operations, allowing for smoother user interactions.
 
 <p align="center" justify="center">
@@ -257,21 +257,36 @@ The adoption of the Game Loop Pattern in our Pong game design yields several key
 
 This pattern forms the backbone of our game's mechanics, providing a robust structure that facilitates user interaction and maintains a dynamic gaming experience.
 
-### Game Loop Pattern
-The game loop pattern is essentially a loop that repeats at a consistent rate, ensuring that the game progresses smoothly over time. For our work, this pattern will be implemented in the "State" class, and with each iteration the position of the paddles, ball, and potentially the score of the game will all be updated.  
-### State Pattern
-This pattern is set to be implemented for the Game and Menu states. Resorting to the State class, we will be able to change between the aforementioned Game and Menu states in run-time. Initially we start in the MenuState then, when we start a new game of pong, we switch to the GameState and when the game ends we go back to MenuState again, changing the State behavior each time.
-### Factory Method Pattern
-Because the State class wants the subclasses(GameState and MenuState) to specify the Controller and Viewer objects it creates, we will implement the Factory Method Pattern to make this happen.
 
-### Strategy Pattern
-We needed to find a way to make the ElementViewer class have different behaviors, depending on the Element object to view. To sort this out, we are bound to implement the Strategy Pattern.
-## Pattern Consequences
- By implementing the patterns mentioned before, our code is bound to be built different.
- ### Positive Consequences
- Design Patterns offered many benefits in regard to our project design. For example, due to the use of Strategy Pattern, flexibility and extensibility is promoted since we are separating the draw() algorithms belonging to the different implementations of ElementViewer. The MVC Pattern, on the other hand, promotes reusability, as it makes it easier to scale and reuse components independently. For instance, you can have multiple views for the same model. Another benefit of using these patterns would be the ability to make clean state transitions between GameState and MenuState with the principles of the State Pattern. 
- ### Negative Consequences
- Because not everything is perfect, we have also came up with some situations where Design Patterns have given us headaches. We have found that some Design Patterns make the code more challenging to navigate, due to the increased number of classes. The learning curve to these concepts is also quite present, as we took some time to get familiarized with all of them. Despite these and some more minor setbacks, we have every reason to support the implementation of the aforementioned Design Patterns.
+### Sound Management
+
+### Problem in Context:
+The challenge in our Pong game was to manage the playback of various sounds with a unified control system. 
+To prevent conflicts and ensure consistent sound management, we needed a single point of access for music-related functionalities, 
+avoiding the instantiation of multiple conflicting instances.
+
+### The Pattern:
+We employed the Singleton Pattern to address this challenge. By utilizing a private constructor and a static method for obtaining the instance, 
+this pattern ensures that a class has only one instance and provides a global point of access to it.
+
+### Implementation:
+In the "MusicManager" class, the Singleton Pattern is implemented through the getInstance() method. 
+This method checks if an instance already exists; if not, it creates one, ensuring that only a single instance of "MusicManager" exists throughout the application.
+
+### Consequences:
+
+- #### Global Access:
+  The Singleton Pattern enables any part of the application to access the same instance of "MusicManager," 
+  offering a unified interface for sound-related operations.
+
+- #### Resource Efficiency:
+  By restricting the creation of multiple instances, 
+  the pattern optimizes resource usage and prevents unnecessary duplications.
+
+- #### Centralized Control:
+  The Singleton Pattern facilitates centralized control over sound-related functionalities, 
+  promoting consistency and coherence in managing game sounds.
+
 
 ## Mockup
 ![Pong Game Mockup](../Mockup.png)
@@ -291,10 +306,9 @@ We fixed all the errors reported by the error-prone. No other major code smells 
 
 ## Self-Evaluation
 
-tomas escre aqui uma frase bonita:
-okay mano aqui vai:
-És um merdas Afonso. Não mereces nada na vida. Espero que a próxima vez que saíres de casa (nunca porque és um nerd), pises uma poia gigantesca de um cão mal cheiroso, mal cheiroso como tu.
+The team members efficiently divided tasks and contributed their expertise, 
+leading to improved Java skills and a better understanding of key principles and design patterns.
 
-- Afonso Domingues: 95%
-- David Gonçalves: 0,01%
-- Tomas Marques: 0,00001%
+- Afonso Domingues: 33,3%
+- David Gonçalves: 33,3%
+- Tomas Marques: 33,3%
