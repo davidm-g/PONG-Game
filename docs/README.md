@@ -147,6 +147,13 @@ The abstract State class acts as a template, ensuring a consistent structure acr
   <b><i>Fig 5. State and Factory Method Pattern</i></b>
 </p>
 
+These classes can be found in the following files:
+- [State](../src/main/java/com/aor/pong/states/State.java)
+- [WinnerState](../src/main/java/com/aor/pong/states/WinnerState.java)
+- [ModeState](../src/main/java/com/aor/pong/states/ModeState.java)
+- [MenuState](../src/main/java/com/aor/pong/states/MenuState.java)
+- [GameState](../src/main/java/com/aor/pong/states/GameState.java)
+
 ### Consequences:
 Applying the Factory Method Pattern in the context of State classes and 
 their associated Viewer and Controller objects provides the following benefits:
@@ -166,7 +173,7 @@ their associated Viewer and Controller objects provides the following benefits:
 - #### Customization:
   Different states can have their own specific implementations of Viewer and Controller, allowing for customization and adaptability.
 
-### GUI Simplification
+### GUI 
 
 ### Problem in Context:
 The Lanterna library presented unnecessary complexities for our Pong game GUI, requiring a more straightforward and streamlined interface. 
@@ -185,8 +192,13 @@ The interface GUI defines the necessary methods, such as drawing paddles, balls,
   <img src="images/UML/Facade.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 5. Facade Pattern Design for GUI</i></b>
+  <b><i>Fig 6. Facade Pattern Design for GUI</i></b>
 </p>
+
+These classes can be found in the following files:
+- [Game](../src/main/java/com/aor/pong/Game.java)
+- [GUI](../src/main/java/com/aor/pong/gui/GUI.java)
+- [LanternaGUI](../src/main/java/com/aor/pong/gui/LanternaGUI.java)
 
 ### Consequences:
 The adoption of the Facade Pattern in our Pong game GUI design yields several benefits:
