@@ -84,10 +84,10 @@ In the implementation phase, our Pong game exhibits a well-defined structure bas
 This design ensures clear separation of responsibilities among various classes:
 
 <p align="center" justify="center">
-  <img src="images/UML/MVC_Pong.png"/>
+  <img src="images/UML/MVC2.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. Model-View-Controller pattern in Pong</i></b>
+  <b><i>Fig 4. Model-View-Controller pattern in Pong</i></b>
 </p>
 
 - #### Model Classes:
@@ -141,10 +141,10 @@ This approach allows each state, be it the gameplay, menu, winner screen, or mod
 The abstract State class acts as a template, ensuring a consistent structure across different game states while promoting encapsulation and flexibility in handling state-specific behavior.
 
 <p align="center" justify="center">
-  <img src="images/UML/State-Factory.png"/>
+  <img src="images/UML/Factory.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 5. State and Factory Method Pattern</i></b>
+  <b><i>Fig 5. Factory Method Pattern</i></b>
 </p>
 
 These classes can be found in the following files:
@@ -234,11 +234,24 @@ Within each iteration, the method retrieves user input, updates the game state t
 This pattern ensures a continuous and uniform flow of game actions, contributing to a responsive and dynamic gaming experience.
 
 <p align="center" justify="center">
-  <img src="images/UML/Facade.png"/>
+  <img src="images/UML/GLP.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 5. Facade Pattern Design for GUI</i></b>
+  <b><i>Fig 7. Game Loop Pattern given by the step method</i></b>
 </p>
+
+These classes can be found in the following files:
+- [State](../src/main/java/com/aor/pong/states/State.java)
+- [Controller](../src/main/java/com/aor/pong/controller/Controller.java)
+- [GameController](../src/main/java/com/aor/pong/controller/game/GameController.java)
+- [MenuController](../src/main/java/com/aor/pong/controller/menu/MenuController.java)
+- [ModeController](../src/main/java/com/aor/pong/controller/mode/ModeController.java)
+- [WinnerController](../src/main/java/com/aor/pong/controller/Winner/WinnerController.java)
+- [ArenaController](../src/main/java/com/aor/pong/controller/game/ArenaController.java)
+- [Paddle1Controller](../src/main/java/com/aor/pong/controller/game/Paddle1Controller.java)
+- [Paddle2Controller](../src/main/java/com/aor/pong/controller/game/Paddle2Controller.java)
+- [BallController](../src/main/java/com/aor/pong/controller/game/BallController.java)
+
 
 ### Consequences:
 The adoption of the Game Loop Pattern in our Pong game design yields several key advantages:
@@ -273,6 +286,17 @@ this pattern ensures that a class has only one instance and provides a global po
 In the "MusicManager" class, the Singleton Pattern is implemented through the getInstance() method. 
 This method checks if an instance already exists; if not, it creates one, ensuring that only a single instance of "MusicManager" exists throughout the application.
 
+<p align="center" justify="center">
+  <img src="images/UML/Singleton.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 8. Single Pattern for MusicManager</i></b>
+</p>
+
+These classes can be found in the following files:
+- [Game](../src/main/java/com/aor/pong/Game.java)
+- [MusicManager](../src/main/java/com/aor/pong/controller/MusicManager.java)
+
 ### Consequences:
 
 - #### Global Access:
@@ -287,11 +311,6 @@ This method checks if an instance already exists; if not, it creates one, ensuri
   The Singleton Pattern facilitates centralized control over sound-related functionalities, 
   promoting consistency and coherence in managing game sounds.
 
-
-## Mockup
-![Pong Game Mockup](../Mockup.png)
-## UML Diagram
-![UML Diagram](../UML_Diagram.png)
 
 ## Known-code Smells
 We fixed all the errors reported by the error-prone. No other major code smells identified.

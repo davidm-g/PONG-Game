@@ -9,6 +9,7 @@ public class Ball extends Element {
     int xVelocity;
     int yVelocity;
     int initialXSpeed;
+    int initialYSpeed;
 
     public int getInitialXSpeed() {
         return initialXSpeed;
@@ -18,7 +19,6 @@ public class Ball extends Element {
         return initialYSpeed;
     }
 
-    int initialYSpeed;
 
     public Ball(int x, int y){
         super(x,y);

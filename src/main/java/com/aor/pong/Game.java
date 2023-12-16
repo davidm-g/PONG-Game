@@ -14,7 +14,7 @@ import java.net.URISyntaxException;
 public class Game {
     private final LanternaGUI gui;
     private State state;
-    MusicManager musicManager;
+     private MusicManager musicManager;
     public Game() throws FontFormatException, IOException, URISyntaxException {
         this.gui = new LanternaGUI(40, 20);
         musicManager = MusicManager.getInstance();
