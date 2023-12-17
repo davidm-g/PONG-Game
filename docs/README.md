@@ -148,11 +148,11 @@ The abstract State class acts as a template, ensuring a consistent structure acr
 </p>
 
 These classes can be found in the following files:
-- [State](../src/main/java/com/aor/pong/states/State.java)
-- [WinnerState](../src/main/java/com/aor/pong/states/WinnerState.java)
-- [ModeState](../src/main/java/com/aor/pong/states/ModeState.java)
-- [MenuState](../src/main/java/com/aor/pong/states/MenuState.java)
-- [GameState](../src/main/java/com/aor/pong/states/GameState.java)
+- [State](../src/main/java/com/pong/states/State.java)
+- [WinnerState](../src/main/java/com/pong/states/WinnerState.java)
+- [ModeState](../src/main/java/com/pong/states/ModeState.java)
+- [MenuState](../src/main/java/com/pong/states/MenuState.java)
+- [GameState](../src/main/java/com/pong/states/GameState.java)
 
 ### Consequences:
 Applying the Factory Method Pattern in the context of State classes and 
@@ -196,9 +196,9 @@ The interface GUI defines the necessary methods, such as drawing paddles, balls,
 </p>
 
 These classes can be found in the following files:
-- [Game](../src/main/java/com/aor/pong/Game.java)
-- [GUI](../src/main/java/com/aor/pong/gui/GUI.java)
-- [LanternaGUI](../src/main/java/com/aor/pong/gui/LanternaGUI.java)
+- [Game](../src/main/java/com/pong/Game.java)
+- [GUI](../src/main/java/com/pong/gui/GUI.java)
+- [LanternaGUI](../src/main/java/com/pong/gui/LanternaGUI.java)
 
 ### Consequences:
 The adoption of the Facade Pattern in our Pong game GUI design yields several benefits:
@@ -241,16 +241,16 @@ This pattern ensures a continuous and uniform flow of game actions, contributing
 </p>
 
 These classes can be found in the following files:
-- [State](../src/main/java/com/aor/pong/states/State.java)
-- [Controller](../src/main/java/com/aor/pong/controller/Controller.java)
-- [GameController](../src/main/java/com/aor/pong/controller/game/GameController.java)
-- [MenuController](../src/main/java/com/aor/pong/controller/menu/MenuController.java)
-- [ModeController](../src/main/java/com/aor/pong/controller/mode/ModeController.java)
-- [WinnerController](../src/main/java/com/aor/pong/controller/Winner/WinnerController.java)
-- [ArenaController](../src/main/java/com/aor/pong/controller/game/ArenaController.java)
-- [Paddle1Controller](../src/main/java/com/aor/pong/controller/game/Paddle1Controller.java)
-- [Paddle2Controller](../src/main/java/com/aor/pong/controller/game/Paddle2Controller.java)
-- [BallController](../src/main/java/com/aor/pong/controller/game/BallController.java)
+- [State](../src/main/java/com/pong/states/State.java)
+- [Controller](../src/main/java/com/pong/controller/Controller.java)
+- [GameController](../src/main/java/com/pong/controller/game/GameController.java)
+- [MenuController](../src/main/java/com/pong/controller/menu/MenuController.java)
+- [ModeController](../src/main/java/com/pong/controller/mode/ModeController.java)
+- [WinnerController](../src/main/java/com/pong/controller/Winner/WinnerController.java)
+- [ArenaController](../src/main/java/com/pong/controller/game/ArenaController.java)
+- [Paddle1Controller](../src/main/java/com/pong/controller/game/Paddle1Controller.java)
+- [Paddle2Controller](../src/main/java/com/pong/controller/game/Paddle2Controller.java)
+- [BallController](../src/main/java/com/pong/controller/game/BallController.java)
 
 
 ### Consequences:
@@ -294,8 +294,8 @@ This method checks if an instance already exists; if not, it creates one, ensuri
 </p>
 
 These classes can be found in the following files:
-- [Game](../src/main/java/com/aor/pong/Game.java)
-- [MusicManager](../src/main/java/com/aor/pong/controller/MusicManager.java)
+- [Game](../src/main/java/com/pong/Game.java)
+- [MusicManager](../src/main/java/com/pong/controller/MusicManager.java)
 
 ### Consequences:
 
