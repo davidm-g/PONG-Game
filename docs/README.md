@@ -1,4 +1,4 @@
-## LDTS_T14_G03 - PONG
+# LDTS_T14_G03 - PONG
 
 ## Description
 For this project, our group decided to make a spin-off of the classic and revolutionary Pong, made by Atari in 1972.
@@ -17,26 +17,20 @@ This project was developed by Afonso Domingues (up202207313@fe.up.pt), David Gon
 - **Music and Sound Effects** - Integration of music and sound effects in Pong, enhancing the gaming experience, providing an immersive and engaging environment for players.
 - **Use of Threads** - The use of threads is associated with the game flow. It prevents the game from running too fast or too slow on different systems. It separates the game logic from the GUI operations, allowing for smoother user interactions.
 
-<p align="center" justify="center">
-  <img src="images/screenshots/MainMenu.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 1. Main Menu</i></b>
-</p>
+## Controls
+```W``` : Moves the left paddle up.  
+```S``` : Moves the left paddle down.  
+```↑``` : Moves the right paddle up.  
+```↓``` : Moves the right paddle down.  
+```Q``` : Returns to menu mid-game or in difficulty selection.  
 
-<p align="center" justify="center">
-  <img src="images/screenshots/ModeMenu.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 2. Game dificulty selection</i></b>
-</p>
+## Game Demo
 
-<p align="center" justify="center">
-  <img src="images/screenshots/Game.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 3. Gameplay </i></b>
-</p>
+<div style="text-align: center;"><img src="images/screenshots/easy.gif"></div>
+
+## Winning experience :)
+
+<div style="text-align: center;"><img src="images/screenshots/win.gif"></div>
 
 ## Planned Features
 
@@ -46,6 +40,7 @@ All the planned features were successfully implemented.
 ## Design
 
 ### General Structure 
+
 #### Problem in Context:
 Our initial challenge  in developing the Pong game was determining its structure. 
 Given that our game involves a graphical user interface (GUI) and is organized into different game states, 
@@ -69,26 +64,33 @@ This dynamic use of the State Pattern ensures seamless transitions between state
 - #### Game State
 The Game State governs the actual gameplay, handling interactions between paddles and the ball. 
 During a match, the game transitions to this state.
+
+<div style="text-align: center;"><img src="images/screenshots/Game.png"></div>
+
 - #### Menu State
 Initiating the Pong game places it in the Menu State. 
 From here, players can navigate through different options, such as starting a new game or adjusting settings.
+
+<div style="text-align: center;"><img src="images/screenshots/MainMenu.png"></div>
+
 - #### Winner State
 Upon concluding a game, the Winner State appears, 
 announcing the victorious player and providing options to play again or return to the menu.
+
+<div style="text-align: center;"><img src="images/screenshots/WinnerMenu.png"></div>
+
 - #### Mode State
 The Mode State allows players to select the difficulty level before starting a new game. 
 It offers options such as Easy, Medium, and Hard, influencing the gameplay experience.
+
+<div style="text-align: center;"><img src="images/screenshots/ModeMenu.png"></div>
 
 ### Implementation:
 In the implementation phase, our Pong game exhibits a well-defined structure based on the Model-View-Controller (MVC) pattern. 
 This design ensures clear separation of responsibilities among various classes:
 
-<p align="center" justify="center">
-  <img src="images/UML/MVC2.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 4. Model-View-Controller pattern in Pong</i></b>
-</p>
+#### Model-View-Controller pattern in Pong
+<div style="text-align: center;"><img src="images/UML/MVC2.png"></div>
 
 - #### Model Classes:
     These classes are dedicated to storing and managing data essential for the game, 
@@ -137,15 +139,12 @@ each with its associated Viewer and Controller. For instance, the GameState clas
 extends the generic State class and implements the factory methods getViewer() and getController(). 
 In the getViewer() method, an instance of the GameViewer is created, tailored to visualize the game-specific model. 
 Similarly, the ArenaController is instantiated in the getController() method to handle user input and update the game state accordingly. 
-This approach allows each state, be it the gameplay, menu, winner screen, or mode selection, to dynamically determine the appropriate Viewer and Controller without hardcoding them. 
+This approach allows each state, be it the gameplay, menu, winner screen, or mode selection, to dynamically determine the appropriate Viewer and Controller without hard coding them. 
 The abstract State class acts as a template, ensuring a consistent structure across different game states while promoting encapsulation and flexibility in handling state-specific behavior.
 
-<p align="center" justify="center">
-  <img src="images/UML/Factory.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 5. Factory Method Pattern</i></b>
-</p>
+#### Factory Method Pattern
+
+<div style="text-align: center;"><img src="images/UML/Factory.png"/></div>
 
 These classes can be found in the following files:
 - [State](../src/main/java/com/pong/states/State.java)
@@ -188,12 +187,9 @@ The LanternaGUI class acts as a facade, providing a simplified interface to the 
 It encapsulates the details of Lanterna, allowing us to include only the features essential to our Pong game. 
 The interface GUI defines the necessary methods, such as drawing paddles, balls, scoreboards, and handling user inputs.
 
-<p align="center" justify="center">
-  <img src="images/UML/Facade.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 6. Facade Pattern Design for GUI</i></b>
-</p>
+#### Facade Pattern Design for GUI
+
+<div style="text-align: center;"><img src="images/UML/Facade.png"/></div>
 
 These classes can be found in the following files:
 - [Game](../src/main/java/com/pong/Game.java)
@@ -233,12 +229,9 @@ The step method, overridden in subclasses like "GameState" and "MenuState," orch
 Within each iteration, the method retrieves user input, updates the game state through the controller, and visually renders changes using the viewer. 
 This pattern ensures a continuous and uniform flow of game actions, contributing to a responsive and dynamic gaming experience.
 
-<p align="center" justify="center">
-  <img src="images/UML/GLP.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 7. Game Loop Pattern given by the step method</i></b>
-</p>
+#### Game Loop Pattern given by the step methods
+
+<div style="text-align: center;"><img src="images/UML/GLP.png"/></div>
 
 These classes can be found in the following files:
 - [State](../src/main/java/com/pong/states/State.java)
@@ -286,12 +279,9 @@ this pattern ensures that a class has only one instance and provides a global po
 In the "MusicManager" class, the Singleton Pattern is implemented through the getInstance() method. 
 This method checks if an instance already exists; if not, it creates one, ensuring that only a single instance of "MusicManager" exists throughout the application.
 
-<p align="center" justify="center">
-  <img src="images/UML/Singleton.png"/>
-</p>
-<p align="center">
-  <b><i>Fig 8. Single Pattern for MusicManager</i></b>
-</p>
+#### Single Pattern for MusicManager
+
+<div style="text-align: center;"><img src="images/UML/Singleton.png"/></div>
 
 These classes can be found in the following files:
 - [Game](../src/main/java/com/pong/Game.java)
