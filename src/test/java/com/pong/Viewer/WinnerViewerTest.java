@@ -30,6 +30,7 @@ public class WinnerViewerTest {
 
     @Test
     public void testDrawElements(){
+
         Mockito.when(mockWinner.getPlaynumber()).thenReturn(1);
         Mockito.when(mockWinner.getNumberEntries()).thenReturn(2);
         Mockito.when(mockWinner.isSelected(anyInt())).thenReturn(true);
