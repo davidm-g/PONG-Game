@@ -46,8 +46,6 @@ public class GameTest {
         Mockito.doNothing().when(guimock).close();
 
 
-
-
     }
 
 

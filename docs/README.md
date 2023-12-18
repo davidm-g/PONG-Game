@@ -17,20 +17,6 @@ This project was developed by Afonso Domingues (up202207313@fe.up.pt), David Gon
 - **Music and Sound Effects** - Integration of music and sound effects in Pong, enhancing the gaming experience, providing an immersive and engaging environment for players.
 - **Use of Threads** - The use of threads is associated with the game flow. It prevents the game from running too fast or too slow on different systems. It separates the game logic from the GUI operations, allowing for smoother user interactions.
 
-## Controls
-```W``` : Moves the left paddle up.  
-```S``` : Moves the left paddle down.  
-```↑``` : Moves the right paddle up.  
-```↓``` : Moves the right paddle down.  
-```Q``` : Returns to menu mid-game or in difficulty selection.  
-
-## Game Demo
-
-<div style="text-align: center;"><img src="images/screenshots/easy.gif"></div>
-
-## Winning experience :)
-
-<div style="text-align: center;"><img src="images/screenshots/win.gif"></div>
 
 ## Planned Features
 
@@ -65,32 +51,32 @@ This dynamic use of the State Pattern ensures seamless transitions between state
 The Game State governs the actual gameplay, handling interactions between paddles and the ball. 
 During a match, the game transitions to this state.
 
-<div style="text-align: center;"><img src="images/screenshots/Game.png"></div>
 
 - #### Menu State
 Initiating the Pong game places it in the Menu State. 
 From here, players can navigate through different options, such as starting a new game or adjusting settings.
 
-<div style="text-align: center;"><img src="images/screenshots/MainMenu.png"></div>
 
 - #### Winner State
 Upon concluding a game, the Winner State appears, 
 announcing the victorious player and providing options to play again or return to the menu.
 
-<div style="text-align: center;"><img src="images/screenshots/WinnerMenu.png"></div>
 
 - #### Mode State
 The Mode State allows players to select the difficulty level before starting a new game. 
 It offers options such as Easy, Medium, and Hard, influencing the gameplay experience.
 
-<div style="text-align: center;"><img src="images/screenshots/ModeMenu.png"></div>
 
 ### Implementation:
 In the implementation phase, our Pong game exhibits a well-defined structure based on the Model-View-Controller (MVC) pattern. 
 This design ensures clear separation of responsibilities among various classes:
 
-#### Model-View-Controller pattern in Pong
-<div style="text-align: center;"><img src="images/UML/MVC2.png"></div>
+<p align="center" justify="center">
+  <img src="images/UML/MVC2.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 1. MVC architectural pattern and state pattern</i></b>
+</p>
 
 - #### Model Classes:
     These classes are dedicated to storing and managing data essential for the game, 
@@ -142,9 +128,13 @@ Similarly, the ArenaController is instantiated in the getController() method to 
 This approach allows each state, be it the gameplay, menu, winner screen, or mode selection, to dynamically determine the appropriate Viewer and Controller without hard coding them. 
 The abstract State class acts as a template, ensuring a consistent structure across different game states while promoting encapsulation and flexibility in handling state-specific behavior.
 
-#### Factory Method Pattern
 
-<div style="text-align: center;"><img src="images/UML/Factory.png"/></div>
+<p align="center" justify="center">
+  <img src="images/UML/Factory.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 2. Factory Method pattern</i></b>
+</p>
 
 These classes can be found in the following files:
 - [State](../src/main/java/com/pong/states/State.java)
@@ -187,9 +177,13 @@ The LanternaGUI class acts as a facade, providing a simplified interface to the 
 It encapsulates the details of Lanterna, allowing us to include only the features essential to our Pong game. 
 The interface GUI defines the necessary methods, such as drawing paddles, balls, scoreboards, and handling user inputs.
 
-#### Facade Pattern Design for GUI
 
-<div style="text-align: center;"><img src="images/UML/Facade.png"/></div>
+<p align="center" justify="center">
+  <img src="images/UML/Facade.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 3. Facade Pattern design for GUI</i></b>
+</p>
 
 These classes can be found in the following files:
 - [Game](../src/main/java/com/pong/Game.java)
@@ -229,9 +223,14 @@ The step method, overridden in subclasses like "GameState" and "MenuState," orch
 Within each iteration, the method retrieves user input, updates the game state through the controller, and visually renders changes using the viewer. 
 This pattern ensures a continuous and uniform flow of game actions, contributing to a responsive and dynamic gaming experience.
 
-#### Game Loop Pattern given by the step methods
 
-<div style="text-align: center;"><img src="images/UML/GLP.png"/></div>
+
+<p align="center" justify="center">
+  <img src="images/UML/GLP.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 4. Game Loop Pattern given by the step methods</i></b>
+</p>
 
 These classes can be found in the following files:
 - [State](../src/main/java/com/pong/states/State.java)
@@ -279,9 +278,13 @@ this pattern ensures that a class has only one instance and provides a global po
 In the "MusicManager" class, the Singleton Pattern is implemented through the getInstance() method. 
 This method checks if an instance already exists; if not, it creates one, ensuring that only a single instance of "MusicManager" exists throughout the application.
 
-#### Single Pattern for MusicManager
 
-<div style="text-align: center;"><img src="images/UML/Singleton.png"/></div>
+<p align="center" justify="center">
+  <img src="images/UML/Singleton.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 5. Single Pattern for MusicManager</i></b>
+</p>
 
 These classes can be found in the following files:
 - [Game](../src/main/java/com/pong/Game.java)

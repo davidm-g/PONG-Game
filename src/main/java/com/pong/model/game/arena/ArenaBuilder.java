@@ -17,19 +17,19 @@ public class ArenaBuilder {
     }
 
 
-    protected Ball createBall(int x, int y){
+    public Ball createBall(int x, int y){
         return new Ball(x,y);
     }
 
-    protected  ScoreBoard createScoreBoard(int x, int y){
+    public ScoreBoard createScoreBoard(int x, int y){
         return new ScoreBoard(x,y);
     }
 
-    protected Paddle createPaddle1(int x, int y){
+    public Paddle createPaddle1(int x, int y){
         return new Paddle(x,y);
     }
 
-    protected Paddle createPaddle2(int x, int y){
+    public Paddle createPaddle2(int x, int y){
         return new Paddle(x,y);
     }
 }
