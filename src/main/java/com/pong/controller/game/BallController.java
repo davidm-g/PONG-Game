@@ -41,7 +41,7 @@ public class BallController extends GameController{
             MusicManager.getInstance().stopAll();
             MusicManager.getInstance().start(Sounds.GOAL);
             getModel().getPaddle1().setPosition(new Position(0,getModel().getHeight()/2));
-            getModel().getPaddle2().setPosition(new Position(getModel().getWidth(), getModel().getHeight()/2));
+            getModel().getPaddle2().setPosition(new Position(getModel().getWidth() - 1, getModel().getHeight()/2));
             ball.setPosition(new Position(getModel().getWidth()/2,getModel().getHeight()/2));
             Random random = new Random();
 

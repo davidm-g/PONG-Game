@@ -38,7 +38,7 @@ public class LanternaGUI implements GUI {
     }
 
     public static void setMode(int mode) {
-        PADDLE_HEIGHT = 4 + 3*mode;
+        PADDLE_HEIGHT = 3 + 4*mode;
     }
 
     public static int getPaddleHeight() {
@@ -110,7 +110,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPaddle1(Position position) {
-        TerminalPosition top_left = new TerminalPosition(position.getX() - PADDLE_WIDTH + 1, position.getY() - PADDLE_HEIGHT/2);
+        TerminalPosition top_left = new TerminalPosition(position.getX(), position.getY() - PADDLE_HEIGHT/2);
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);
@@ -120,7 +120,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawPaddle2(Position position) {
-        TerminalPosition top_left = new TerminalPosition(position.getX() - PADDLE_WIDTH/2 - 1, position.getY() - PADDLE_HEIGHT/2);
+        TerminalPosition top_left = new TerminalPosition(position.getX(), position.getY() - PADDLE_HEIGHT/2);
         int width = PADDLE_WIDTH;
         int height = PADDLE_HEIGHT;
         TerminalSize tsize = new TerminalSize(width, height);

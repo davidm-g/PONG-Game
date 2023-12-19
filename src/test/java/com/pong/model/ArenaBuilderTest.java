@@ -26,7 +26,7 @@ public class ArenaBuilderTest {
         assertEquals(20, arena.getHeight());
         assertEquals(arena.getBall().getPosition(),new Position(arena.getWidth()/2, arena.getHeight()/2));
         assertEquals(arena.getPaddle1().getPosition(),new Position(0, arena.getHeight()/2));
-        assertEquals(arena.getPaddle2().getPosition(),new Position(arena.getWidth(), arena.getHeight()/2));
+        assertEquals(arena.getPaddle2().getPosition(),new Position(arena.getWidth() - 1, arena.getHeight()/2));
         assertEquals(arena.getScoreBoard().getPosition(),new Position(arena.getWidth()/2, 5));
 
     }

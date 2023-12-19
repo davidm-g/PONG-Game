@@ -9,7 +9,7 @@ public class ArenaBuilder {
         Arena arena = new Arena(40, 20);
 
         arena.setPaddle1(createPaddle1(0,arena.getHeight()/2));
-        arena.setPaddle2(createPaddle2(arena.getWidth(), arena.getHeight()/2));
+        arena.setPaddle2(createPaddle2(arena.getWidth() - 1, arena.getHeight()/2));
         arena.setBall(createBall(arena.getWidth()/2,arena.getHeight()/2));
         arena.setScoreBoard(createScoreBoard(arena.getWidth() / 2, 5));
 

@@ -50,8 +50,8 @@ public class ArenaTest {
     }
     @Test
     public void testCheckPosPaddle() {
-        Position onLowerBoundary = new Position(10, arena.getHeight() - LanternaGUI.getPaddleHeight() / 2 + 1);
-        Position justOutsideLowerBoundary = new Position(10, arena.getHeight() - LanternaGUI.getPaddleHeight() / 2 + 2);
+        Position onLowerBoundary = new Position(10, arena.getHeight() - LanternaGUI.getPaddleHeight() / 2);
+        Position justOutsideLowerBoundary = new Position(10, arena.getHeight() - LanternaGUI.getPaddleHeight() / 2 + 1);
         Position onUpperBoundary = new Position(10, LanternaGUI.getPaddleHeight() / 2);
         Position justOutsideUpperBoundary = new Position(10, LanternaGUI.getPaddleHeight() / 2 - 1);
 
@@ -84,7 +84,7 @@ public class ArenaTest {
     public void testCheckCollisionPaddles() {
         ball.setPosition(new Position(LanternaGUI.getPaddleWidth(), 10));
         arena.setBall(ball);
-        paddle1.setPosition(new Position(LanternaGUI.getPaddleWidth(), 10));
+        paddle1.setPosition(new Position(0, 10));
         arena.setPaddle1(paddle1);
         assertTrue(arena.checkColisionPaddles());
 
@@ -102,21 +102,20 @@ public class ArenaTest {
 
         ball.setPosition(new Position(arena.getWidth() - LanternaGUI.getPaddleWidth() - 2, 10));
         arena.setBall(ball);
-        paddle2.setPosition(new Position(arena.getWidth(), 10));
+        paddle2.setPosition(new Position(arena.getWidth() - 1, 10));
         arena.setPaddle2(paddle2);
         assertFalse(arena.checkColisionPaddles());
     }
     @Test
     public void testCheckGoal(){
-        Ball ball = new Ball(0,10);
+        Ball ball = new Ball(1,10);
         Ball ball1 = new Ball(40,10);
         ScoreBoard scoreBoard = new ScoreBoard(20,5);
         arena.setBall(ball);
         arena.setScoreBoard(scoreBoard);
+        assertFalse(arena.checkGoal());
 
-        ScoreBoard scoreBoard1 = new ScoreBoard(20,5);
         arena.setBall(ball1);
-        arena.setScoreBoard(scoreBoard1);
         assertTrue(arena.checkGoal());
     }
 }
