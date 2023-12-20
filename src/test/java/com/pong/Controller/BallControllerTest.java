@@ -61,8 +61,7 @@ public class BallControllerTest {
         Mockito.verify(arena,Mockito.times(1)).CheckBorderCollision();
         Mockito.verify(arena,Mockito.times(1)).checkColisionPaddles();
         Mockito.verify(arena,Mockito.times(1)).checkGoal();
-
+        Mockito.verify(ball,Mockito.times(3)).setyVelocity(Mockito.anyInt());
+        Mockito.verify(ball,Mockito.times(3)).setxVelocity(Mockito.anyInt());
     }
 }
-
-

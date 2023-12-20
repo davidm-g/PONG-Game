@@ -14,7 +14,8 @@ public class BallTest {
 
     @Test
     void xVelocity() {
-        if(ball.getInitialXSpeed() == 0) {
+        int ix = ball.getInitialXSpeed();
+        if(ix == 0) {
             assertEquals(0,ball.getInitialXSpeed());
             Assertions.assertEquals(-1, ball.getxVelocity());
         }
@@ -26,7 +27,8 @@ public class BallTest {
 
     @Test
     void yVelocity() {
-        if(ball.getInitialYSpeed() == 0) {
+        int iy = ball.getInitialYSpeed();
+        if(iy == 0) {
             assertEquals(0,ball.getInitialYSpeed());
             Assertions.assertEquals(-1, ball.getyVelocity());
         }

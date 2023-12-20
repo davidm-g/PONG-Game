@@ -312,9 +312,16 @@ We fixed all the errors reported by the error-prone. No other major code smells 
 
 ### Screenshot of coverage report
 
+<p align="center" justify="center">
+  <img src="images/screenshots/pitest.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 6. Code coverage screenshot</i></b>
+</p>
 
 ### Link to mutation testing report
 
+- [Mutation Tests](../build/reports/pitest/202312201048/index.html)
 
 ## Self-Evaluation
 
