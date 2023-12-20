@@ -34,7 +34,7 @@ public class BallController extends GameController{
         if (getModel().checkColisionPaddles()) {
             MusicManager.getInstance().stopAll();
             MusicManager.getInstance().start(Sounds.PADDLE);
-            ball.setxVelocity(-(getModel().getBall().getxVelocity()));
+            ball.setxVelocity(-getModel().getBall().getxVelocity());
         }
 
         if (getModel().checkGoal()) {

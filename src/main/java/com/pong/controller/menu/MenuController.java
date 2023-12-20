@@ -29,6 +29,10 @@ public class MenuController extends Controller<Menu> {
                 if (getModel().isSelectedPlay())  {
                     game.setState(new ModeState(new Mode()));
                 }
+            // fall through
+            default:
+
+                break;
         }
     }
 }

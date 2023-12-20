@@ -24,7 +24,9 @@ public class ModeController extends Controller<Mode> {
         switch (action) {
             case QUIT:
                 game.setState(new MenuState(new Menu()));
+                //fall through
             case PADDLE2UP:
+                //fall through
                 getModel().previousEntry();
                 break;
             case PADDLE2DOWN:
@@ -46,6 +48,10 @@ public class ModeController extends Controller<Mode> {
                     LanternaGUI.setMode(0);
                     game.setState(new GameState(new ArenaBuilder().createArena()));
                 }
+            //fall through
+            default:
+
+                break;
         }
     }
 }

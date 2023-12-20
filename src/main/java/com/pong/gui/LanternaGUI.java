@@ -30,7 +30,7 @@ public class LanternaGUI implements GUI {
     int terminal_width, terminal_height;
     TextGraphics textGraphics;
     Terminal terminal;
-    private Font font;
+
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -91,7 +91,7 @@ public class LanternaGUI implements GUI {
         return fontConfig;
     }
 
-
+    @Override
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;

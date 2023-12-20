@@ -38,12 +38,12 @@ public class GameTest {
 
     @Test
     public void testGameLoop() throws IOException {
-        LanternaGUI guimock = Mockito.mock(LanternaGUI.class);
+
         State statemock = Mockito.mock(State.class);
 
         Mockito.when(game.getState()).thenReturn(statemock);
         Mockito.doNothing().when(statemock).step(Mockito.any(Game.class),Mockito.any(LanternaGUI.class),Mockito.anyLong());
-        Mockito.doNothing().when(guimock).close();
+
 
 
     }

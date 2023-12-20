@@ -22,7 +22,7 @@ public class Game {
         this.state = new MenuState(new Menu());
     }
 
-    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
+    public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException, InterruptedException {
         new Game().start();
     }
 
@@ -30,7 +30,7 @@ public class Game {
         this.state = state;
     }
 
-    private void start() throws IOException{
+    private void start() throws IOException, InterruptedException {
         int FPS = 60;
         int frameTime = 1000 / FPS;
 
@@ -42,10 +42,7 @@ public class Game {
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;
 
-            try {
-                if (sleepTime > 0) Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
-            }
+            if (sleepTime > 0) Thread.sleep(sleepTime);
         }
 
         gui.close();

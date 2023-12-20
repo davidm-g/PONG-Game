@@ -37,6 +37,10 @@ public class WinnerController extends Controller<Winner> {
                     MusicManager.getInstance().stopAll();
                     game.setState(new GameState(new ArenaBuilder().createArena()));
                 }
+            // fall through
+            default:
+
+                break;
         }
     }
 }
