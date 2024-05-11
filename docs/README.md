@@ -1,4 +1,10 @@
-# LDTS_T14_G03 - PONG
+# LDTS_T14_G03 - PONG <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original-wordmark.svg" title="Java" alt="Java Logo" width="55" height="55" align="right" />
+
+#### Project done in collaboration with:  
+[Afonso Domingues](https://github.com/AfonsoDomingues17)  
+[Tomás Marques](https://github.com/Torpedoooo)
+
+## Grade: 17.4/20
 
 ## Description
 For this project, our group decided to make a spin-off of the classic and revolutionary Pong, made by Atari in 1972.
@@ -6,7 +12,7 @@ We decided on this game because although it is simple, allowing us to focus on f
 with close attention to the use of appropriate design patterns and complete testing, it also is different from previous projects and exercises we have done,
 in the sense that we need to implement some features that were not formerly explored in our lectures, like the physics of the ball.
 
-This project was developed by Afonso Domingues (up202207313@fe.up.pt), David Gonçalves (up202208795@fe.up.pt) and Tomás Marques (up202206667@fe.up.pt) for LDTS 2023-24.
+This project was developed by Afonso Domingues, David Gonçalves and Tomás Marques for LDTS 2023-24.
 
 ## Implemented Features
 - **Player vs. Player:** Engage in a head-to-head battle with a friend;
@@ -331,3 +337,6 @@ leading to improved Java skills and a better understanding of key principles and
 - Afonso Domingues: 33,3%
 - David Gonçalves: 33,3%
 - Tomas Marques: 33,3%
+
+Made by David Gonçalves | davidmgoncalves.pt@gmail.com  
+<div id="badge"> <a href="https://www.linkedin.com/in/davidm-g"/> <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>&nbsp;
